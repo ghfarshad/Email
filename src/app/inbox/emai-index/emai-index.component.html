@@ -1,0 +1,9 @@
+<div class="ui relaxed divided list" style="margin: 16px;">
+   <div class="item" *ngFor="let item of Emails">
+     <i class="large envelope middle aligned icon"></i>
+     <div class="content">
+       <a [routerLink]="item.id" routerLinkActive="active" class="header" >{{item.subject}}</a>
+       <div class="description">{{item.from}}</div>
+     </div>
+   </div> 
+ </div>

@@ -1,0 +1,23 @@
+<form class="ui form container" [formGroup]="form" (ngSubmit)="onSubmit()">
+   <h3>Sign <span class="span">I</span>n</h3>
+    <app-input [control]="f.username" label = "username"  ></app-input>
+    <app-input [control]="f.password" label = "password" type="password" placeholder = "plese enter password"></app-input>
+
+
+      <ng-container *ngIf="showErrorPasswordDontMatch()">
+
+         <div class="ui pointing red basic label" *ngIf="form.hasError('noConnection')">
+            please check your Connection 
+         </div>
+         <div class="ui pointing red basic label" *ngIf="form.hasError('credential')">
+            username or password is incorrect
+         </div>
+      </ng-container>
+
+   <button [disabled]="form.invalid" class="ui button" type="submit" style="background-color: darkmagenta; color: white;">creat account</button>
+  </form>
+  {{form.errors | json}}
+
+{{form.controls?.username.errors | json}}
+
+

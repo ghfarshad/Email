@@ -1,0 +1,27 @@
+<div class="field">
+  <label>{{label}}</label>
+  <input [type]="type" [formControl]="control" [placeholder]="placeholder">
+  <ng-container *ngIf="showErrors()">
+
+    <div class="ui pointing red basic label" *ngIf="control.hasError('required')">
+      please enter this value
+    </div>
+    <div class="ui pointing red basic label" *ngIf="control.hasError('minlength')">
+      minLength is {{control.errors.minlength.requiredLength}} and your char is {{control.errors.minlength.actualLength}}
+    </div>
+    <div class="ui pointing red basic label" *ngIf="control.hasError('maxlenght')">
+      maxLenght is {{control.errors.maxlenght.requiredLength}} and your char is {{control.errors.maxlenght.actualLength}}
+    </div>
+    
+    <div class="ui pointing red basic label" *ngIf="control.hasError('nonUniqueusername')">
+      this username is already exist
+    </div>
+    <div class="ui pointing red basic label" *ngIf="control.hasError('unknownError')">
+      unknownError
+    </div>
+    <div class="ui pointing red basic label" *ngIf="control.hasError('email')">
+      please enter a valid Email
+    </div>
+
+  </ng-container>
+</div>

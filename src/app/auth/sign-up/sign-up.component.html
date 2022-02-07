@@ -1,0 +1,26 @@
+<form class="ui form container" [formGroup]="form" (ngSubmit)="onSubmit()">
+   <h3>Sign <span class="span">U</span>p</h3>
+    <app-input [control]="f.username" label = "username"  ></app-input>
+    <app-input [control]="f.password" label = "password" type="password" placeholder = "plese enter pasword"></app-input>
+
+    <app-input [control]="f.passwordConfirmation" placeholder="plese enter password again" label = "passwordConfimation" type="password"></app-input>
+      <ng-container *ngIf="showErrorPasswordDontMatch()">
+
+         <div class="ui pointing red basic label" *ngIf="form.hasError('passwordDontMatch')">
+            please entre same password 
+         </div>
+         <div class="ui pointing red basic label" *ngIf="form.hasError('noConnection')">
+            check your Connection 
+         </div>
+         <div class="ui pointing red basic label" *ngIf="form.hasError('unknownError')">
+            unknownError
+         </div>
+      </ng-container>
+
+   <button [disabled]="form.invalid" class="ui button" type="submit" style="background-color: darkmagenta; color: white;">creat account</button>
+  </form>
+  {{form.errors | json}}
+
+{{form.controls?.username.errors | json}}
+
+
